@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @room.name %>
+</p>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Destroy', @room, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', rooms_path %>
