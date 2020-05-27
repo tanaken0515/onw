@@ -1,24 +1,27 @@
 <template>
-  <table>
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Path</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr
-      v-for="room in rooms"
-      :key="room.id"
-    >
-      <td>{{ room.id }}</td>
-      <td>{{ room.name }}</td>
-      <td><a :href="room.path">Show</a></td>
-    </tr>
-    </tbody>
-  </table>
+  <el-table
+    :data="rooms"
+    style="width: 100%"
+  >
+    <el-table-column
+      prop="id"
+      label="ID"
+    />
+    <el-table-column
+      prop="name"
+      label="Name"
+    />
+    <el-table-column label="Path">
+      <template slot-scope="scope">
+        <el-link
+          type="primary"
+          :href="scope.row.path"
+        >
+          Show
+        </el-link>
+      </template>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
