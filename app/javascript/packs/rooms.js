@@ -1,5 +1,14 @@
 import Vue from 'vue'
+import {
+  Link,
+  Table,
+  TableColumn
+} from 'element-ui'
 import RoomsTable from '../RoomsTable.vue'
+
+Vue.use(Link)
+Vue.use(Table)
+Vue.use(TableColumn)
 
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.querySelector('.js-rooms-table')
