@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build images
+      run: docker-compose build
+
+    - name: Lint
+      run: docker-compose run web yarn lint:js
