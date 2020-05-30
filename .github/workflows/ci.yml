@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build images
+      run: docker-compose build
+
+    - name: Yarn install
+      run: docker-compose run web yarn install
+
+    - name: Lint
+      run: docker-compose run web yarn lint:js
