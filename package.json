@@ -1,6 +1,10 @@
 {
   "name": "myapp",
   "private": true,
+  "scripts": {
+    "lint:js": "eslint --ext .js,.vue app/javascript",
+    "lint:js:fix": "eslint --ext .js,.vue --fix app/javascript"
+  },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
@@ -13,6 +17,8 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "eslint": "^7.1.0",
+    "eslint-plugin-vue": "^6.2.2",
     "webpack-dev-server": "^3.11.0"
   }
 }
