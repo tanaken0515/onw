@@ -10,8 +10,12 @@ Vue.use(Link);
 Vue.use(Table);
 Vue.use(TableColumn);
 
-document.addEventListener('DOMContentLoaded', () => {
-  const el = document.querySelector('.js-rooms-table');
+const mountRoomsTable = () => {
+  const el = document.querySelector('#js-rooms-table');
+
+  if (el == null) {
+    return;
+  }
 
   const { rooms } = el.dataset;
 
@@ -23,4 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     el: el,
     render: h => h(RoomsTable, { props })
   }).$mount();
+
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  mountRoomsTable();
 });
