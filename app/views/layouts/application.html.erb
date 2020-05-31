@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title><%= content_for?(:title) ? "#{yield(:title)} | ONW" : 'ONW' %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <section id="js-layout-container" class="el-container is-vertical">
+      <header class="el-header">
+        <div class="el-header__title">
+          One Night Werewolf
+        </div>
+      </header>
+      <main class="el-main">
+        <%= yield %>
+      </main>
+      <div class="js-layout-footer"></div>
+    </section>
+    <%= javascript_pack_tag 'layout' %>
   </body>
 </html>
