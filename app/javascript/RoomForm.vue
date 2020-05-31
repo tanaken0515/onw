@@ -14,11 +14,12 @@
         <input
           type="hidden"
           name="authenticity_token"
-          value="todo"
+          :value="csrf"
         >
         <el-form-item label="Room Name">
           <el-input
-            name="name"
+            v-model="refName"
+            name="room[name]"
           />
         </el-form-item>
         <el-form-item>
@@ -35,6 +36,7 @@
 </template>
 
 <script>
+  import { csrf } from './util/csrf';
   export default {
     name: "RoomForm",
     props: {
@@ -42,6 +44,12 @@
         type: String,
         required: true
       }
+    },
+    data () {
+      return {
+        refName: '',
+        csrf: csrf()
+      };
     }
   };
 </script>
