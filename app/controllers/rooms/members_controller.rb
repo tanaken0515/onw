@@ -1,0 +1,30 @@
+module Rooms
+  class MembersController < ApplicationController
+    before_action :set_room
+
+    def create
+      if checked_in?(@room)
+        return redirect_to room_path(@room), notice: 'You have already checked in.'
+      end
+
+      member = Member.new(member_params)
+      if member.save
+        check_in(member)
+        redirect_to room_path(@room), notice: 'You have successfully checked in.'
+      else
+        redirect_to room_path(@room), notice: 'You failed to check in.'
+      end
+    end
+
+    private
+
+    def set_room
+      @room = Room.find_by(url_token: params[:url_token])
+      raise ActiveRecord::RecordNotFound if @room.nil?
+    end
+
+    def member_params
+      params.require(:member).permit(:check_in_code, :name)
+    end
+  end
+end

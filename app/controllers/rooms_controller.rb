@@ -5,7 +5,9 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
-  def show; end
+  def show
+    @members = @room.members
+  end
 
   def new
     @room = Room.new
