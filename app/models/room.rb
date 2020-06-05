@@ -3,6 +3,10 @@ class Room < ApplicationRecord
 
   before_validation :set_url_token
 
+  def to_param
+    url_token
+  end
+
   private
 
   def set_url_token
