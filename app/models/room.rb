@@ -1,6 +1,8 @@
 class Room < ApplicationRecord
   include HasUrlToken
 
+  has_many :members
+
   before_validation :set_url_token
 
   def to_param
