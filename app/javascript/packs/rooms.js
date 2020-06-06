@@ -10,8 +10,8 @@ import {
   Table,
   TableColumn
 } from 'element-ui';
-import RoomForm from '../RoomForm';
-import RoomsTable from '../RoomsTable.vue';
+import RoomForm from '../components/rooms/RoomForm';
+import RoomsTable from '../components/rooms/RoomsTable';
 import CheckInForm from '../components/rooms/CheckInForm';
 
 Vue.use(Button);

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-  import { csrf } from './util/csrf';
+  import { csrf } from '../../util/csrf';
   export default {
     name: "RoomForm",
     props: {
