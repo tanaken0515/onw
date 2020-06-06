@@ -12,6 +12,7 @@ import {
 } from 'element-ui';
 import RoomForm from '../RoomForm';
 import RoomsTable from '../RoomsTable.vue';
+import CheckInForm from '../components/rooms/CheckInForm';
 
 Vue.use(Button);
 Vue.use(Col);
@@ -61,7 +62,27 @@ const mountRoomForm = () => {
   }).$mount();
 };
 
+const mountCheckInForm = () => {
+  const el = document.querySelector('#js-check-in-form');
+
+  if (el == null) {
+    return;
+  }
+
+  const { actionPath } = el.dataset;
+
+  const props = {
+    actionPath: actionPath
+  };
+
+  new Vue({
+    el: el,
+    render: h => h(CheckInForm, { props })
+  }).$mount();
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   mountRoomsTable();
   mountRoomForm();
+  mountCheckInForm();
 });
