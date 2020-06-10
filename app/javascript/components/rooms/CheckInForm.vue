@@ -2,10 +2,16 @@
   <el-row>
     <el-col :span="6">
       <el-tabs v-model="refTabName">
-        <el-tab-pane label="Check-in" name="newcomer">
+        <el-tab-pane
+          label="Check-in"
+          name="newcomer"
+        >
           <new-member-form :action-path="actionPaths.newcomer" />
         </el-tab-pane>
-        <el-tab-pane label="Re-entry" name="member">
+        <el-tab-pane
+          label="Re-entry"
+          name="member"
+        >
           <re-entry-form :action-path="actionPaths.member" />
         </el-tab-pane>
       </el-tabs>
