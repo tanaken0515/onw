@@ -8,7 +8,9 @@ import {
   Link,
   Row,
   Table,
-  TableColumn
+  TableColumn,
+  Tabs,
+  TabPane
 } from 'element-ui';
 import RoomForm from '../components/rooms/RoomForm';
 import RoomsTable from '../components/rooms/RoomsTable';
@@ -23,6 +25,8 @@ Vue.use(Link);
 Vue.use(Row);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(Tabs);
+Vue.use(TabPane);
 
 const mountRoomsTable = () => {
   const el = document.querySelector('#js-rooms-table');
@@ -69,10 +73,10 @@ const mountCheckInForm = () => {
     return;
   }
 
-  const { actionPath } = el.dataset;
+  const { actionPaths } = el.dataset;
 
   const props = {
-    actionPath: actionPath
+    actionPaths: actionPaths ? JSON.parse(actionPaths) : {}
   };
 
   new Vue({

@@ -15,7 +15,7 @@
         <%= link_to 'Check-out', room_check_out_path(room_url_token: @room), method: :delete %>
       <% else %>
         <h4>Check-in the Room</h4>
-        <div id="js-check-in-form" data-action-path="<%= room_members_path(room_url_token: @room) %>"></div>
+        <div id="js-check-in-form" data-action-paths="<%= check_in_action_paths(@room) %>"></div>
         <%= javascript_pack_tag 'rooms' %>
       <% end %>
     </div>
