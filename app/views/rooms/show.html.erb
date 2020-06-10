@@ -5,11 +5,14 @@
       <h2>Room: <%= @room.name %></h2>
     </div>
   </div>
+  <br/>
   <div class="el-row">
     <div class="el-col">
       <% if checked_in?(@room) %>
         <h4>Members</h4>
         <p><%= @members.map(&:name).join(', ') %></p>
+        <br/>
+        <%= link_to 'Check-out', room_check_out_path(room_url_token: @room), method: :delete %>
       <% else %>
         <h4>Check-in the Room</h4>
         <div id="js-check-in-form" data-action-path="<%= room_members_path(room_url_token: @room) %>"></div>

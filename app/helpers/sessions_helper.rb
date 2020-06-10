@@ -11,4 +11,9 @@ module SessionsHelper
   def checked_in?(room)
     current_member.present? && current_member.room_id == room.id
   end
+
+  def check_out
+    @current_member = nil
+    session.delete(:member_id)
+  end
 end
