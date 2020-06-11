@@ -1,10 +1,32 @@
-<p id="notice"><%= notice %></p>
+<section>
+  <p id="notice"><%= notice %></p>
+  <div class="el-row">
+    <div class="el-col">
+      <h2>Room: <%= @room.name %></h2>
+    </div>
+  </div>
+  <br/>
+  <div class="el-row">
+    <div class="el-col">
+      <% if checked_in?(@room) %>
+        <h4>Members</h4>
+        <p><%= @members.map(&:name).join(', ') %></p>
+        <br/>
+        <%= link_to 'Check-out', room_check_out_path(room_url_token: @room), method: :delete %>
+      <% else %>
+        <h4>Check-in the Room</h4>
+        <div id="js-check-in-form" data-action-paths="<%= check_in_action_paths(@room) %>"></div>
+        <%= javascript_pack_tag 'rooms' %>
+      <% end %>
+    </div>
+  </div>
+  <br/>
+  <div class="el-row">
+    <div class="el-col">
+      <%= link_to 'Edit', edit_room_path(@room) %> |
+      <%= link_to 'Destroy', @room, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <%= link_to 'Back', rooms_path %>
+    </div>
+  </div>
+</section>
 
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-</p>
-
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Destroy', @room, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', rooms_path %>

@@ -3,7 +3,7 @@
 
 <h1>Rooms</h1>
 
-<div class="js-rooms-table" data-rooms="<%= @rooms.map{ |room| {id: room.id, name: room.name, path: room_path(room)} }.to_json %>"></div>
+<div id="js-rooms-table" data-rooms="<%= @rooms.map{ |room| {id: room.id, name: room.name, path: room_path(room)} }.to_json %>"></div>
 <%= javascript_pack_tag 'rooms' %>
 
 <br>

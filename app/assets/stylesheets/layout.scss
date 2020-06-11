@@ -1,18 +1,26 @@
-.el-header {
-  line-height: 60px;
-  background-color: #2E2F30;
-  color: #DADADA;
+#js-layout-container {
+  .el-header {
+    line-height: 60px;
+    background-color: #2E2F30;
+    color: #DADADA;
 
-  &__title {
-    font-size: 20px;
+    &__title {
+      font-size: 20px;
+    }
   }
-}
 
-.el-footer {
-  background-color: #2E2F30;
-  color: #909399;
+  .el-footer {
+    background-color: #2E2F30;
+    color: #909399;
 
-  &__title {
-    text-align: center;
+    &__title {
+      text-align: center;
+    }
+  }
+
+  main {
+    section {
+      padding: 8px;
+    }
   }
 }

@@ -10,15 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_141329) do
+ActiveRecord::Schema.define(version: 2020_06_10_235222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "members", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.string "check_in_code", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id", "check_in_code"], name: "index_members_on_room_id_and_check_in_code", unique: true
+    t.index ["room_id"], name: "index_members_on_room_id"
+  end
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "url_token", limit: 30, null: false
   end
 
+  add_foreign_key "members", "rooms"
 end
