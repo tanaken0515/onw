@@ -12,7 +12,8 @@ module Rooms
         check_in(member)
         redirect_to room_path(@room), notice: 'You have successfully checked in.'
       else
-        redirect_to room_path(@room), notice: 'You failed to check in.'
+        message = member.errors.full_messages.join(' / ')
+        redirect_to room_path(@room), notice: message
       end
     end
 
